@@ -1,6 +1,8 @@
+<p><a class="btn btn-secondary" href="<?php echo base_url('posts'); ?>">Back</a></p>
 <h2><?php echo $post['title']; ?></h2>
 <small class="post-date">Posted on: <?php echo $post['created_at']; ?></small>
 <br/>
+<p><img src="<?php echo base_url('assets/images/posts/') . $post['post_image']; ?>"></p>
 <div class="post-body">
 	<p><?php echo $post['body']; ?></p>
 </div>
@@ -17,3 +19,4 @@
 		<?php echo form_close(); ?>
 	</div>
 </div>
+<br/>
