@@ -35,13 +35,43 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="<?php echo base_url('posts') ?>">Blog</a>
 		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="<?php echo base_url('categories') ?>">Categories</a>
+		      </li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
-		      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-		      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+		      <a class="btn btn-light" href="<?php echo base_url('users/register') ?>">Register</a>
 		    </form>
 		  </div>
 	  </div>
 	</nav>
 
 	<div class="container"><br/>
+		<!-- Flash messages -->
+		<?php if($this->session->flashdata('user_registered')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('user_registered'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('post_created')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('post_created'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('post_updated')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('post_updated'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('post_deleted')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('post_deleted'); ?>
+			</div>
+		<?php endif; ?>
