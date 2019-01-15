@@ -40,7 +40,21 @@
 		      </li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
-		      <a class="btn btn-light" href="<?php echo base_url('users/register') ?>">Register</a>
+				<ul class="navbar-nav mr-auto">
+					<?php if(!$this->session->userdata('logged_in')): ?>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url('users/register') ?>">Register</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url('users/login') ?>">Login</a>
+						</li>
+					<?php endif; ?>
+					<?php if($this->session->userdata('logged_in')): ?>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url('users/logout') ?>">Logout</a>
+						</li>
+					<?php endif; ?>
+				</ul>
 		    </form>
 		  </div>
 	  </div>
@@ -73,5 +87,26 @@
 			<div class="alert alert-dismissible alert-success">
 			  <button type="button" class="close" data-dismiss="alert">&times;</button>
 			  <?php echo $this->session->flashdata('post_deleted'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('login_failed')): ?>
+			<div class="alert alert-dismissible alert-danger">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('login_failed'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('user_Loggedin')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('user_Loggedin'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('user_loggedout')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('user_loggedout'); ?>
 			</div>
 		<?php endif; ?>

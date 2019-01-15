@@ -1,4 +1,8 @@
-<h2><?php echo $title; ?><a class="btn btn-info float-right" href="<?php echo base_url('posts/create'); ?>">Create New</a></h2><br/><br/>
+<h2><?php echo $title; ?>
+<?php if($this->session->userdata('logged_in')): ?>
+	<a class="btn btn-info float-right" href="<?php echo base_url('posts/create'); ?>">Create New</a>
+<?php endif; ?>
+</h2><br/><br/>
 
 <?php foreach($posts as $post): ?>
 	<div class="row">

@@ -7,6 +7,7 @@
 	<p><?php echo $post['body']; ?></p>
 </div>
 
+<?php if($this->session->userdata('user_id') == $post['user_id']): ?>
 <hr>
 
 <div class="row">
@@ -19,11 +20,12 @@
 		<?php echo form_close(); ?>
 	</div>
 </div>
+<?php endif; ?>
 
 <hr />
 
 <h4>Comments</h4><br/>
-<?php if(isset($comments)): ?>
+<?php if($comments): ?>
 	<?php foreach($comments as $comment): ?>
 		<div class="breadcrumb">
 			<?php echo $comment['body']; ?> by &nbsp; <strong><?php echo $comment['name']; ?></strong>
