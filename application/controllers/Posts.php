@@ -3,9 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Posts extends CI_Controller {
 
-	public function index() {	
+	public function index($offset = 0) {	
+		// Pagination Config
+		$config['base_url'] = base_url('posts/index/');
+		$config['total_rows'] = $this->db->count_all('posts');
+		$config['per_page'] = 5;
+		$config['url_segment'] = 3;
+		$config['attributes'] = array('class' => 'pagination-link');
+
+		// Init pagination
+		$this->pagination->initialize($config);
+
 		$data['title'] = 'Latest Posts';
-		$data['posts'] = $this->post_model->get_posts();
+		$data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
 		$this->load->view('templates/header');
 		$this->load->view('posts/index', $data);

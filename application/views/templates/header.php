@@ -33,10 +33,10 @@
 		        <a class="nav-link" href="<?php echo base_url('about') ?>">About</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="<?php echo base_url('posts') ?>">Blog</a>
+		        <a class="nav-link" href="<?php echo base_url('posts/index') ?>">Blog</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="<?php echo base_url('categories') ?>">Categories</a>
+		        <a class="nav-link" href="<?php echo base_url('categories/index') ?>">Categories</a>
 		      </li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
@@ -108,5 +108,12 @@
 			<div class="alert alert-dismissible alert-success">
 			  <button type="button" class="close" data-dismiss="alert">&times;</button>
 			  <?php echo $this->session->flashdata('user_loggedout'); ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->session->flashdata('category_deleted')): ?>
+			<div class="alert alert-dismissible alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->session->flashdata('category_deleted'); ?>
 			</div>
 		<?php endif; ?>

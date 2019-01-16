@@ -81,7 +81,7 @@ class Users extends CI_Controller {
 				// Set message
 				$this->session->set_flashdata('user_Loggedin', 'You are now logged in');
 
-				redirect('posts');
+				redirect('posts/index');
 			} else {
 				// Set message
 				$this->session->set_flashdata('login_failed', 'Invalid username or password');

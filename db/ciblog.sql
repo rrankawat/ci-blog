@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2019 at 07:36 PM
+-- Generation Time: Jan 16, 2019 at 08:13 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,12 +39,10 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `created_at`) VALUES
-(1, 'Business', '2019-01-04 10:33:02'),
-(2, 'Technology', '2019-01-04 10:33:02'),
-(3, 'Social', '2019-01-04 10:34:01'),
-(4, 'Lifestyle', '2019-01-04 10:34:01'),
-(5, 'Entertainment', '2019-01-14 15:09:46');
+INSERT INTO `categories` (`id`, `user_id`, `name`, `created_at`) VALUES
+(1, 1, 'Business', '2019-01-04 10:33:02'),
+(4, 2, 'Lifestyle', '2019-01-04 10:34:01'),
+(5, 2, 'Entertainment', '2019-01-14 15:09:46');
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -175,7 +174,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users`
